@@ -1,0 +1,12 @@
+enabled: false
+webhook: ""
+embed-title: "**Ersa Alert**"
+embed-color: "#00FFFF"
+violation-content:
+  - "**Игрок**: %player%"
+  - "**Проверка**: %check%"
+  - "**Нарушения**: %violations%"
+  - "**Версия Клиента**: %version%"
+  - "**Бренд**: %brand%"
+  - "**Пинг**: %ping%"
+  - "**Сенса**: %sens%"
