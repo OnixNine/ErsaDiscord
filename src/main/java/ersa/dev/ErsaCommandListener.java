@@ -5,7 +5,7 @@ import club.minnced.discord.webhook.send.WebhookEmbed;
 import club.minnced.discord.webhook.send.WebhookEmbedBuilder;
 import dev.ersa.api.check.ICheck;
 import dev.ersa.api.events.impl.ErsaCommandExecuteEvent;
-import dev.ersa.api.user.IErsaPlayer;
+import dev.ersa.api.user.ErsaUser;
 import dev.onix.EventHandler;
 import org.bukkit.configuration.file.FileConfiguration;
 
@@ -59,13 +59,13 @@ public class ErsaCommandListener {
         String command = event.command();
         if (command.equalsIgnoreCase("[webhook]")) {
             ICheck check = event.check();
-            IErsaPlayer player = event.player();
+            ErsaUser player = event.player();
             String verbose = event.verbose();
             if (client != null) {
                 String content = staticContent;
                 content = content.replace("%check%", check.getName());
                 content = content.replace("%violations%", Integer.toString((int) check.getViolations()));
-                content = content.replaceAll("%brand%",player.brand()).replaceAll("%player%", player.name()).replaceAll("%sens%", String.valueOf(player.sensitivity())).replaceAll("%version%",player.version()).replaceAll("%ping%", String.valueOf(player.ping()));
+                content = content.replaceAll("%brand%",player.brand()).replaceAll("%player%", player.getName()).replaceAll("%sensY%", String.valueOf(player.getSensitivityY())).replaceAll("%sensX%", String.valueOf(player.getSensitivityX())).replaceAll("%version%",player.version()).replaceAll("%ping%", String.valueOf(player.ping()));
                 content = content.replace("_", "\\_");
 
                 WebhookEmbedBuilder embed = new WebhookEmbedBuilder()

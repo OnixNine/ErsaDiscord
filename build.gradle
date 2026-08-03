@@ -20,11 +20,11 @@ repositories {
 
 dependencies {
     compileOnly "com.destroystokyo.paper:paper-api:1.16.5-R0.1-SNAPSHOT"
-    implementation "dev.ersa:ErsaAPI:0.0.2"
+    compileOnly(files("APA-1.0.jar"))
     implementation("club.minnced:discord-webhooks:0.8.0")
 }
 
-def targetJavaVersion = 8
+def targetJavaVersion = 17
 java {
     def javaVersion = JavaVersion.toVersion(targetJavaVersion)
     sourceCompatibility = javaVersion
