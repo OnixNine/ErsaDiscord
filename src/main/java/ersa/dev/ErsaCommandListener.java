@@ -65,7 +65,9 @@ public class ErsaCommandListener {
                 String content = staticContent;
                 content = content.replace("%check%", check.getName());
                 content = content.replace("%violations%", Integer.toString((int) check.getViolations()));
-                content = content.replaceAll("%brand%",player.brand()).replaceAll("%player%", player.getName()).replaceAll("%sensY%", String.valueOf(player.getSensitivityY())).replaceAll("%sensX%", String.valueOf(player.getSensitivityX())).replaceAll("%version%",player.version()).replaceAll("%ping%", String.valueOf(player.ping()));
+                content = content.replace("%sensX%",String.valueOf( player.getHumanSensitivityX()));
+                content = content.replace("%sensY%", String.valueOf(player.getHumanSensitivityY()));
+                content = content.replaceAll("%brand%",player.brand()).replaceAll("%player%", player.getName()).replaceAll("%sensY%", String.valueOf(player.getSensitivityY())).replaceAll("%version%",player.version()).replaceAll("%ping%", String.valueOf(player.ping()));
                 content = content.replace("_", "\\_");
 
                 WebhookEmbedBuilder embed = new WebhookEmbedBuilder()
@@ -79,8 +81,8 @@ public class ErsaCommandListener {
                 if (!verbose.isEmpty()) {
                     embed.addField(new WebhookEmbed.EmbedField(true, "Verbose", verbose));
                 }
-
                 sendWebhookEmbed(embed);
+                event.cancel();
             }
         }
 
