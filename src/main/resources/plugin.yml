@@ -4,4 +4,4 @@ main: ersa.dev.Main
 api-version: '1.16'
 authors: [ OnixNine ]
 depend:
-  - ErsaAnticheat
+  - ErsaAC
