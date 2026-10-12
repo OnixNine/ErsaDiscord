@@ -20,7 +20,7 @@ repositories {
 
 dependencies {
     compileOnly "com.destroystokyo.paper:paper-api:1.16.5-R0.1-SNAPSHOT"
-    compileOnly(files("apa-1.0.jar"))
+    compileOnly(files("api-1.0.7.jar"))
     implementation("club.minnced:discord-webhooks:0.8.0")
 }
 
